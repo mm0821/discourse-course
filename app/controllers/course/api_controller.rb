@@ -40,7 +40,7 @@ class Course::ApiController < Admin::AdminController
             (confirmed.nil? || all_confirmations_checked(u, confirmed))
         }
       else
-        return error("user not found") if user.staff? != dumpStaff
+        return error("user not found") unless user.staff? == dumpStaff
 
         [user]
       end
